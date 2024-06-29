@@ -24,6 +24,7 @@ def init_db():
                         id INTEGER PRIMARY KEY AUTOINCREMENT,
                         student TEXT,
                         message TEXT,
+                        mentor TEXT,
                         FOREIGN KEY (student) REFERENCES students (name))''')
     cursor.execute('''INSERT OR IGNORE INTO users (username, email, password, user_type)
                       VALUES ('mentor', 'mentor@example.com', 'mentor@123', 'mentor')''')

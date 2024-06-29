@@ -9,10 +9,10 @@ def get_students():
     conn.close()
     return students
 
-def add_notification(student_name, message):
+def add_notification(student_name, message, mentor_name):
     conn = sqlite3.connect('users.db')
     cursor = conn.cursor()
-    cursor.execute("INSERT INTO notifications (student, message) VALUES (?, ?)", (student_name, message))
+    cursor.execute("INSERT INTO notifications (student, message, mentor) VALUES (?, ?, ?)", (student_name, message, mentor_name))
     conn.commit()
     conn.close()
 
@@ -28,7 +28,8 @@ def show():
     student_name = st.selectbox("Select Student", students['name'])
     message = st.text_area("Project/Assignment Details")
     if st.button("Assign"):
-        add_notification(student_name, message)
+        mentor_name = st.session_state['username']
+        add_notification(student_name, message, mentor_name)
         st.success("Project/Assignment assigned successfully!")
     
     st.subheader("Upcoming Meetings (Placeholder)")

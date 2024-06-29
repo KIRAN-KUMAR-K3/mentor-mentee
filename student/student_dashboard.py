@@ -36,7 +36,6 @@ def show():
     notifications = get_notifications(student_name)
     if not notifications.empty:
         for index, row in notifications.iterrows():
-            st.write(f"Notification: {row['message']}")
+            st.write(f"Notification from {row['mentor']}: {row['message']}")
     else:
         st.write("No notifications")
-
