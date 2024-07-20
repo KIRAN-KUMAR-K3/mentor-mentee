@@ -152,9 +152,9 @@ def main():
      font-weight: bold;
      border-radius: 5px;
  }}
- </style>
+     </style>
  """
- #st.markdown(img_style, unsafe_allow_html=True)
+ st.markdown(img_style, unsafe_allow_html=True)
  
     # Custom CSS for styling
     #st.markdown("""
@@ -168,7 +168,7 @@ def main():
             #.stSelectbox > label { color: #0073e6; }
             #.stSidebar .stSelectbox > label { color: #0073e6; }
         #</style>
-    """, unsafe_allow_html=True)
+   # """, unsafe_allow_html=True)
 
     st.title("Mentor-Mentee App")
 
