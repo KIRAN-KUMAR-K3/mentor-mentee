@@ -122,7 +122,7 @@ def main():
             .main { background-color: #f5f5f5; }
             h1 { color: #0073e6; font-family: 'Arial Black', Gadget, sans-serif; }
             h2 { color: #0073e6; }
-            .stButton > button { background-color: #0073e6; color: white; }
+            .stButton > button { background-color: #000000; color: black; }
             .stTextInput > label { color: #0073e6; }
             .stTextArea > label { color: #0073e6; }
             .stSelectbox > label { color: #0073e6; }
