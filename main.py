@@ -117,17 +117,17 @@ def main():
     init_db()
 
     # Custom CSS for styling
-    st.markdown("""
-        <style>
-            .main { background-color: #f5f5f5; }
-            h1 { color: #0073e6; font-family: 'Arial Black', Gadget, sans-serif; }
-            h2 { color: #0073e6; }
-            .stButton > button { background-color: #000000; color: black; }
-            .stTextInput > label { color: #0073e6; }
-            .stTextArea > label { color: #0073e6; }
-            .stSelectbox > label { color: #0073e6; }
-            .stSidebar .stSelectbox > label { color: #0073e6; }
-        </style>
+    #st.markdown("""
+     #   <style>
+      #      .main { background-color: #f5f5f5; }
+       #     h1 { color: #0073e6; font-family: 'Arial Black', Gadget, sans-serif; }
+        #    h2 { color: #0073e6; }
+         #   .stButton > button { background-color: #000000; color: black; }
+          #  .stTextInput > label { color: #0073e6; }
+           # .stTextArea > label { color: #0073e6; }
+            #.stSelectbox > label { color: #0073e6; }
+            .#stSidebar .stSelectbox > label { color: #0073e6; }
+        #</style>
     """, unsafe_allow_html=True)
 
     st.title("Mentor-Mentee App")
