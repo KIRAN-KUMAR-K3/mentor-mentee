@@ -2,6 +2,10 @@ import streamlit as st
 import pandas as pd
 import hashlib
 import sqlite3
+import requests
+import base64
+
+
 
 # Utility functions
 def make_hashes(password):
@@ -113,18 +117,31 @@ def load_feedback():
     return pd.DataFrame(rows, columns=['mentor_username', 'student_username', 'feedback'])
 
 # Streamlit app
-# Streamlit app
+
+def get_base64_of_url_image(url):
+    try:
+        response = requests.get(url)
+        if response.status_code == 200:
+            base64_image = base64.b64encode(response.content).decode('utf-8')
+            return base64_image
+        else:
+            raise Exception(f"Failed to retrieve image from URL. Status code: {response.status_code}")
+    except Exception as e:
+        raise Exception(f"Error fetching image from URL: {str(e)}")
+
 def main():
-    init_db()
-    
-    # Get the base64 encoded image
-    img_url = 'https://th.bing.com/th/id/R.5e808ce28c3614e93d7989cf9f8e1743?rik=ONqobzODJm2T3Q&riu=http%3a%2f%2feskipaper.com%2fimages%2fblue-background7.jpg&ehk=Tf%2fi57oHAty4B2tEefVF09Zsa8LwgdKZRq65DNKmuuA%3d&risl=&pid=ImgRaw&r=0'
+    img_url = 'https://img.freepik.com/free-photo/abstract-grunge-decorative-relief-navy-blue-stucco-wall-texture-wide-angle-rough-colored-background_1258-28311.jpg?auto=format&fit=crop&w=315&h=220'
     img_base64 = get_base64_of_url_image(img_url)
     img_style = f"""
         <style>
             .main {{
                 background-image: url("data:image/jpg;base64,{img_base64}");
                 background-size: cover;
+                height: 100vh;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
             }}
             h1, h2, label {{
                 color: #ffffff !important;
@@ -136,28 +153,11 @@ def main():
                 color: white;
                 font-weight: bold;
             }}
-            .css-1d391kg {{
-                background-color: rgba(0, 0, 0, 0.5) !important;
-                padding: 20px;
-                border-radius: 10px;
-            }}
-            .css-10trblm {{
-                font-weight: bold;
-            }}
-            .stSubheader {{
-                color: #ffffff !important; /* Change subheader text color to white */
-            }}
-            .st-success {{
-                background-color: #00cc66;
-                color: white;
-                padding: 10px;
-                font-weight: bold;
-                border-radius: 5px;
-            }}
+            /* Add other styles as needed */
         </style>
     """
     st.markdown(img_style, unsafe_allow_html=True)
- 
+
     st.title("Mentor-Mentee App")
 
     # Initialize session state variables
