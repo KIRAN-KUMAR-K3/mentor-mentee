@@ -128,7 +128,7 @@ def main():
             #.stSelectbox > label { color: #0073e6; }
             #.stSidebar .stSelectbox > label { color: #0073e6; }
         #</style>
-    """, unsafe_allow_html=True)
+    #""", unsafe_allow_html=True)
 
     st.title("Mentor-Mentee App")
 
