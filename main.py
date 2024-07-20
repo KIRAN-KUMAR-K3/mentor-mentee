@@ -113,63 +113,51 @@ def load_feedback():
     return pd.DataFrame(rows, columns=['mentor_username', 'student_username', 'feedback'])
 
 # Streamlit app
+# Streamlit app
 def main():
     init_db()
-# Get the base64 encoded image
+    
+    # Get the base64 encoded image
     img_url ='https://th.bing.com/th/id/R.5e808ce28c3614e93d7989cf9f8e1743?rik=ONqobzODJm2T3Q&riu=http%3a%2f%2feskipaper.com%2fimages%2fblue-background7.jpg&ehk=Tf%2fi57oHAty4B2tEefVF09Zsa8LwgdKZRq65DNKmuuA%3d&risl=&pid=ImgRaw&r=0'
     img_base64 = get_base64_of_url_image(img_url)
     img_style = f"""
- <style>
- .main {{
-     background-image: url("data:image/jpg;base64,{img_base64}");
-     background-size: cover;
- }}
-     h1, h2, label {{
-         color: #ffffff !important;
-         font-family: 'Helvetica', Gadget, sans-serif;
-         font-weight: bold;
- }}
-     .stButton > button {{
-     background-color: #0073e6;
-     color:white;
-     font-weight: bold;
- }}
-     .css-1d391kg {{
-     background-color: rgba(0, 0, 0, 0.5) !important;
-     padding: 20px;
-     border-radius: 10px;
- }}
-     .css-10trblm {{
-     font-weight: bold;
- }}
-     .stSubheader {{
-     color: #ffffff !important; /* Change subheader text color to white */
- }}
-     .st-success {{
-     background-color: #00cc66;
-     color: white;
-         padding: 10px;
-     font-weight: bold;
-     border-radius: 5px;
- }}
-     </style>
- """
- st.markdown(img_style, unsafe_allow_html=True)
+        <style>
+            .main {{
+                background-image: url("data:image/jpg;base64,{img_base64}");
+                background-size: cover;
+            }}
+            h1, h2, label {{
+                color: #ffffff !important;
+                font-family: 'Helvetica', Gadget, sans-serif;
+                font-weight: bold;
+            }}
+            .stButton > button {{
+                background-color: #0073e6;
+                color:white;
+                font-weight: bold;
+            }}
+            .css-1d391kg {{
+                background-color: rgba(0, 0, 0, 0.5) !important;
+                padding: 20px;
+                border-radius: 10px;
+            }}
+            .css-10trblm {{
+                font-weight: bold;
+            }}
+            .stSubheader {{
+                color: #ffffff !important; /* Change subheader text color to white */
+            }}
+            .st-success {{
+                background-color: #00cc66;
+                color: white;
+                padding: 10px;
+                font-weight: bold;
+                border-radius: 5px;
+            }}
+        </style>
+    """
+    st.markdown(img_style, unsafe_allow_html=True)
  
-    # Custom CSS for styling
-    #st.markdown("""
-     #   <style>
-      #      .main { background-color: #f5f5f5; }
-       #     h1 { color: #0073e6; font-family: 'Arial Black', Gadget, sans-serif; }
-        #    h2 { color: #0073e6; }
-         #   .stButton > button { background-color: #000000; color: black; }
-          #  .stTextInput > label { color: #0073e6; }
-           # .stTextArea > label { color: #0073e6; }
-            #.stSelectbox > label { color: #0073e6; }
-            #.stSidebar .stSelectbox > label { color: #0073e6; }
-        #</style>
-   # """, unsafe_allow_html=True)
-
     st.title("Mentor-Mentee App")
 
     # Initialize session state variables
