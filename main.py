@@ -117,8 +117,8 @@ def main():
     init_db()
 # Get the base64 encoded image
     img_url ='https://th.bing.com/th/id/R.5e808ce28c3614e93d7989cf9f8e1743?rik=ONqobzODJm2T3Q&riu=http%3a%2f%2feskipaper.com%2fimages%2fblue-background7.jpg&ehk=Tf%2fi57oHAty4B2tEefVF09Zsa8LwgdKZRq65DNKmuuA%3d&risl=&pid=ImgRaw&r=0'
-         img_base64 = get_base64_of_url_image(img_url)
-             img_style = f"""
+    img_base64 = get_base64_of_url_image(img_url)
+    img_style = f"""
  <style>
  .main {{
      background-image: url("data:image/jpg;base64,{img_base64}");
