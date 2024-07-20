@@ -126,7 +126,7 @@ def main():
           #  .stTextInput > label { color: #0073e6; }
            # .stTextArea > label { color: #0073e6; }
             #.stSelectbox > label { color: #0073e6; }
-            .#stSidebar .stSelectbox > label { color: #0073e6; }
+            #.stSidebar .stSelectbox > label { color: #0073e6; }
         #</style>
     """, unsafe_allow_html=True)
 
